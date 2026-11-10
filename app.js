@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Read form data
 app.use(express.urlencoded({ extended: true }));
@@ -68,6 +68,6 @@ app.post("/calculate-age", (req, res) => {
     `);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
